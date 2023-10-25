@@ -29,7 +29,7 @@ namespace GetProcNames
                 var tree = CSharpSyntaxTree.ParseText(text);
                 var root = tree.GetRoot();
 
-                // Search for string literals containing proc names
+                // Search for string literals containing proc names by schema
                 var literals = root.DescendantNodes().OfType<LiteralExpressionSyntax>()
                     .Where(l => l.IsKind(SyntaxKind.StringLiteralExpression) && l.Token.Text.Contains("schema.")).ToList();
 
